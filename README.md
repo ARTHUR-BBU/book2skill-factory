@@ -1,5 +1,9 @@
 # Book2Skill Factory
 
+[![Claude Code](https://img.shields.io/badge/Claude-Code-Plugin-blue)](https://code.claude.com/docs/en/plugin-marketplaces)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/ARTHUR-BBU/book2skill-factory-?style=social)](https://github.com/ARTHUR-BBU/book2skill-factory-/stargazers)
+
 [English](#english) | [中文](#中文)
 
 ---
