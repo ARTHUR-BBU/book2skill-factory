@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "local-marketplace",
+  "description": "Local plugin marketplace for custom Claude Code plugins",
+  "owner": {
+    "name": "User",
+    "email": "user@example.com"
+  },
+  "plugins": [
+    {
+      "name": "blue-ocean-strategy-pro",
+      "description": "Complete blue ocean strategy framework for creating uncontested market space through value innovation. Includes ERRC grid, noncustomer analysis, strategy canvas, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "User"
+      },
+      "source": "./plugins/blue-ocean-strategy-pro",
+      "category": "productivity",
+      "homepage": "https://github.com/anthropics/claude-plugins-public"
+    }
+  ]
+}
