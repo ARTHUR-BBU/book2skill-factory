@@ -72,7 +72,8 @@ install-independent.bat
 
 ```
 ~/.claude/plugins/marketplaces/local-marketplace/
-├── marketplace.json                   # Shared configuration
+├── .claude-plugin/
+│   └── marketplace.json               # Shared configuration (REQUIRED)
 └── plugins/
     ├── blue-ocean-strategy-pro/
     │   ├── skills/
@@ -89,14 +90,16 @@ install-independent.bat
 ```
 ~/.claude/plugins/marketplaces/
 ├── blue-ocean-strategy-pro-marketplace/
-│   ├── marketplace.json              # Isolated configuration
+│   ├── .claude-plugin/
+│   │   └── marketplace.json          # Isolated configuration (REQUIRED)
 │   └── plugins/
 │       └── blue-ocean-strategy-pro/
 │           ├── skills/
 │           ├── references/
 │           └── assets/
 └── lean-startup-pro-marketplace/
-    ├── marketplace.json              # Isolated configuration
+    ├── .claude-plugin/
+    │   └── marketplace.json          # Isolated configuration (REQUIRED)
     └── plugins/
         └── lean-startup-pro/
             ├── skills/

@@ -73,7 +73,8 @@ mkdir "%TARGET_DIR%" 2>nul
 
 REM Copy marketplace.json
 echo   [INFO] Copying marketplace configuration...
-copy "%SOURCE_DIR%\.claude-plugin\marketplace.json" "%TARGET_DIR%\marketplace.json" /Y >nul
+mkdir "%TARGET_DIR%\.claude-plugin" 2>nul
+copy "%SOURCE_DIR%\.claude-plugin\marketplace.json" "%TARGET_DIR%\.claude-plugin\marketplace.json" /Y >nul
 echo   [SUCCESS] marketplace.json installed to %PLUGIN_NAME%-marketplace
 
 REM Create plugin directory

@@ -92,18 +92,20 @@ Core Frameworks: [list 3-7 frameworks]
 [book-name]-pro/
 ├── .claude-plugin/
 │   └── marketplace.json              # REQUIRED - Plugin registration
-├── skills/                            # Individual skills (4-12)
-│   ├── [tool-1]/
-│   │   └── SKILL.md
-│   ├── [tool-2]/
-│   │   └── SKILL.md
-│   └── ...
-├── references/                        # Deep methodology (5K-8K each)
-│   ├── [tool-1].md
-│   ├── [tool-2].md
-│   └── ...
-├── assets/templates/                  # Worksheets (optional)
-│   └── ...
+├── plugins/                           # Plugin container (CRITICAL)
+│   └── [book-name]-pro/               # Plugin directory (same name as parent)
+│       ├── skills/                    # Individual skills (4-12)
+│       │   ├── [tool-1]/
+│       │   │   └── SKILL.md
+│       │   ├── [tool-2]/
+│       │   │   └── SKILL.md
+│       │   └── ...
+│       ├── references/                # Deep methodology (5K-8K each)
+│       │   ├── [tool-1].md
+│       │   ├── [tool-2].md
+│       │   └── ...
+│       └── assets/templates/          # Worksheets (optional)
+│           └── ...
 ├── README.md
 └── deploy/                            # Deployment scripts
     ├── install-official.sh
@@ -113,9 +115,17 @@ Core Frameworks: [list 3-7 frameworks]
 
 **KEY REQUIREMENTS:**
 - ✅ `.claude-plugin/marketplace.json` - **MUST HAVE** (plugin registration)
-- ✅ `skills/` directory with individual skill directories
+- ✅ `plugins/[plugin-name]/skills/` directory structure
+- ✅ marketplace.json source paths: `"./plugins/[plugin-name]/skills/[skill-name]"`
 - ✅ Each skill has its own `SKILL.md` with YAML frontmatter
 - ✅ Deployment scripts for `~/.claude/plugins/marketplaces/local-marketplace/`
+
+**⚠️ CRITICAL PATH FIX (v2.1):**
+The `source` paths in marketplace.json must include the full path from marketplace.json:
+```json
+"source": "./plugins/[plugin-name]/skills/[skill-name]"
+```
+NOT just `"source": "./skills/[skill-name]"` (this causes "Plugin directory not found" errors)
 
 **Reference:**
 - Official docs: https://code.claude.com/docs/en/plugin-marketplaces
@@ -263,7 +273,7 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
       "author": {
         "name": "[Your Name]"
       },
-      "source": "./skills/[skill-1-name]",
+      "source": "./plugins/[plugin-name]/skills/[skill-1-name]",
       "category": "productivity",
       "homepage": "https://github.com/[username]/[repo]"
     },
@@ -274,7 +284,7 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
       "author": {
         "name": "[Your Name]"
       },
-      "source": "./skills/[skill-2-name]",
+      "source": "./plugins/[plugin-name]/skills/[skill-2-name]",
       "category": "productivity"
     }
   ]

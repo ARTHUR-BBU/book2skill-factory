@@ -99,9 +99,10 @@ print_step "Creating independent marketplace structure..."
 # Create target directory
 mkdir -p "$TARGET_DIR"
 
-# Copy marketplace.json to root
+# Copy marketplace.json to correct location
 print_step "Copying marketplace configuration..."
-cp "$SOURCE_DIR/.claude-plugin/marketplace.json" "$TARGET_DIR/marketplace.json"
+mkdir -p "$TARGET_DIR/.claude-plugin"
+cp "$SOURCE_DIR/.claude-plugin/marketplace.json" "$TARGET_DIR/.claude-plugin/marketplace.json"
 print_success "marketplace.json installed to ${PLUGIN_NAME}-marketplace"
 
 # Create plugin directory
