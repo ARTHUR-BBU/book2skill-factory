@@ -11,6 +11,26 @@ The goal is not a book summary. The goal is to create a skill (or skill collecti
 
 ---
 
+## 🧠 The Key Insight: You Don't Need to Feed the Book
+
+**Most AI models have already read the book.** They trained on millions of books, papers, and articles. The problem isn't that they haven't "read" it — the problem is they don't know **how to turn that knowledge into a structured, executable skill** that helps users.
+
+That's what book2skill-factory does. It's a **harness** — not a reader.
+
+- ❌ Without book2skill: The model "knows" the book but can't systematically apply its methods to help you
+- ✅ With book2skill: The model follows a structured workflow to turn that knowledge into deployable, triggerable skills
+
+**Two input modes:**
+
+| Mode | When | How |
+|------|------|-----|
+| **Mode A: With book** | User provides PDF/EPUB/text/link | Extract from source + validate against model knowledge |
+| **Mode B: Book name only** | User just says "把《XX》变成skill" | Use model's existing knowledge + book2skill harness to generate |
+
+**Mode B is the most common use case.** Users rarely want to upload an entire book — they just want the skill. And that's fine, because the model already has the knowledge. Book2skill is the missing piece that turns "knowing" into "doing."
+
+---
+
 ## 🎯 Core Principle
 
 **Every book has extractable value.** The skill of this skill is figuring out WHAT kind of value, and packaging it into the right skill format.

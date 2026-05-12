@@ -14,6 +14,16 @@
 
 **Book2Skill Factory** 是一个 Claude Code Skill，能把任何书籍转换成 agent 可读、可用的 Skill 或 Plugin Package。
 
+**🧠 核心洞察：大多数 AI 模型已经"读过"你的书了。**
+
+它们在训练时就读过数百万本书籍、论文和文章。问题不在于它们没读过——而在于它们不知道怎么把那些知识变成**结构化的、可执行的 skill** 来帮你解决问题。
+
+Book2Skill Factory 就是那个缺失的 **harness（框架）**：
+- ❌ 没有 book2skill：模型"知道"这本书，但没法系统地用它来帮你
+- ✅ 有了 book2skill：模型按照结构化流程，把知识变成可部署、可触发的 skill
+
+**你甚至不需要上传整本书。** 只需要说"把《XX》变成skill"，模型就会用已有知识 + book2skill 流程直接生成。
+
 **核心能力：**
 - ✅ 智能评估书籍类型 → 自动决定最佳 Skill 形态（方法论/风格模仿/决策框架/习惯系统…）
 - ✅ 方法论书籍 → 多 Skill 插件包（含 marketplace.json）
@@ -208,6 +218,16 @@ MIT License
 ### 🎯 Project Overview
 
 **Book2Skill Factory** transforms any book into agent-readable, agent-usable skills or plugin packages for Claude Code.
+
+**🧠 Key Insight: Most AI models have already "read" your book.**
+
+They trained on millions of books, papers, and articles. The problem isn't that they haven't read it — the problem is they don't know how to turn that knowledge into a **structured, executable skill** that helps users solve problems.
+
+Book2Skill Factory is the missing **harness**:
+- ❌ Without book2skill: The model "knows" the book but can't systematically use it to help you
+- ✅ With book2skill: The model follows a structured workflow to turn knowledge into deployable, triggerable skills
+
+**You don't even need to upload the book.** Just say "Turn [Book Name] into a skill" and the model uses its existing knowledge + book2skill's harness to generate.
 
 **Core Capabilities:**
 - ✅ Smart book assessment → determines optimal skill format automatically
