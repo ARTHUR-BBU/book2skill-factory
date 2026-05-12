@@ -1,33 +1,42 @@
 ---
 name: book2skill-factory
-description: Convert methodology books into Claude Code plugin packages that comply with official marketplace specifications. Use when: (1) turning business/methodology books into official plugin packages, (2) creating marketplace.json-compliant plugins with .claude-plugin directory structure, (3) generating plugins that deploy to ~/.claude/plugins/marketplaces/local-marketplace/, (4) building complete skill systems from books with references, templates, and deployment scripts. Outputs include: .claude-plugin/marketplace.json (plugin registration), skills/ directory with individual SKILL.md files, references/, assets/templates/, and deploy/ scripts. Ideal for entrepreneurship, product, strategy, management, sales, negotiation books. Proven success: Blue Ocean Strategy → official plugin package with marketplace.json, 6 tools, 46,000 words. See references/success-stories/blue-ocean-strategy.md for complete case study.
+description: Transform any book into an executable Claude Code skill or plugin package. Use when: (1) converting a book into a skill that an agent can use to help users, (2) turning a book's frameworks, workflows, or style into deployable Claude Code skills, (3) packaging book-derived skills as a plugin for easy installation and sharing. Adapts output to book type — methodology books become workflow-driven strategy tools, writing craft books become style emulation engines, business biographies become decision-making frameworks. See references/fit-assessment.md for book suitability criteria and references/success-stories/blue-ocean-strategy.md for a complete case study.
 ---
 
 # Book2Skill Factory
 
-**Transform methodology books into actionable Claude Code plugin packages.**
+**Transform any book into an agent-readable, agent-usable skill system.**
+
+The goal is not a book summary. The goal is to create a skill (or skill collection) that lets an agent **understand the book's core value, apply its methods, and help users solve real problems using the book's wisdom** — without the user ever needing to read the book.
 
 ---
 
 ## 🎯 Core Principle
 
-**One book = One plugin package with multiple skills.**
+**Every book has extractable value.** The skill of this skill is figuring out WHAT kind of value, and packaging it into the right skill format.
 
-Don't create book summaries. Create **executable skill systems** that users can deploy to their local Claude Code and use immediately.
+| Book Type | What to Extract | Skill Format |
+|-----------|----------------|--------------|
+| Methodology / Framework books (e.g., *Blue Ocean Strategy*) | Workflows, frameworks, decision tools | Multi-skill package with references |
+| Writing / Style books (e.g., *On Writing*, *Storyworthy*) | Voice, structure, rhetorical patterns | Style emulation skill with examples |
+| Business Biography (e.g., *Shoe Dog*, *The Everything Store*) | Decision patterns, leadership principles | Decision framework skill with case studies |
+| Personal Productivity (e.g., *Atomic Habits*, *Deep Work*) | Systems, habits, daily practices | Action-oriented skill with checklists |
+| Sales / Negotiation (e.g., *Never Split the Difference*, *SPIN Selling*) | Tactical scripts, situational frameworks | Scenario-driven skill with playbooks |
+| Academic / Research (e.g., *Thinking Fast and Slow*) | Mental models, cognitive tools | Analytical skill with thinking prompts |
+| Fiction (e.g., *1984*, *The Great Gatsby*) | Narrative techniques, voice, worldbuilding | Creative writing emulation skill |
+
+**Key insight:** A novel probably shouldn't become a "strategy analysis tool" — but it can become a "write in the style of this author" skill. The assessment step determines the right approach.
 
 ---
 
-## ⚡ Quick Start (3-minute version)
+## ⚡ Quick Start
 
-### What This Does
+1. **Input:** A book (PDF/EPUB/Markdown/Readable link/text)
+2. **Process:** Assess → Determine skill type → Extract → Generate → Package
+3. **Output:** A deployable skill or plugin package
+4. **Deployment:** Copy to `~/.claude/skills/` or install as plugin
 
-1. **Input:** A methodology book (PDF/EPUB/Markdown/Readable link)
-2. **Process:** Extract frameworks → Create skills → Write references → Package
-3. **Output:** A deployable plugin package (4-12 skills, 40K-80K words)
-4. **Deployment:** Copy to `~/.claude/skills/` or `~/.claude/plugins/`
-
-**Time investment:** 5-8 hours for complete package
-**Proven result:** Blue Ocean Strategy → 6 skills, 46,000 words, tested successfully
+**Proven result:** Blue Ocean Strategy → multi-skill plugin package with 6 workflow-driven skills
 
 ---
 
@@ -35,98 +44,149 @@ Don't create book summaries. Create **executable skill systems** that users can 
 
 Use this skill when the user wants to:
 
-- "Convert this book into Claude skills"
-- "Make this framework usable in Claude Code"
-- "Package this methodology as a plugin"
-- "Turn these book concepts into executable tools"
+- "Convert this book into a skill"
+- "Make this book's method usable by an agent"
+- "Turn this book into something Claude can use to help me"
+- "I want an agent that understands this book"
 
-**Best-fit books:** Entrepreneurship, product, strategy, management, sales, negotiation, personal productivity
-**Avoid:** Novels, pure philosophy, narrative nonfiction, memoirs
-**Not sure?** See `references/fit-assessment.md` for detailed criteria and examples
+**See:** `references/fit-assessment.md` for detailed criteria on what types of value different books yield
 
 ---
 
-## 🛠️ 8-Step Workflow
+## 🛠️ Workflow
 
-### Step 1: Fit Assessment (5 min)
+### Step 1: Book Assessment & Strategy Decision
 
-**Ask:**
-- What are the key frameworks/tools in the book?
-- What problems does each solve?
-- Who is the target user?
+**This is the most important step.** It determines everything that follows.
 
-**Output:**
+**Analyze the book across 3 dimensions:**
+
+1. **Content type** — Is it frameworks? Stories? Techniques? Research? Style?
+2. **Extractable value** — What can an agent DO with this knowledge? Help users make decisions? Write in a certain style? Avoid mistakes? Execute a process?
+3. **Structure** — How many distinct, independent tools/methods/patterns does it contain?
+
+**Decision matrix:**
+
 ```
-Fit Level: High / Medium / Low
-Recommended Skills: [4-12 skills]
-Core Frameworks: [list 3-7 frameworks]
+IF the book has 3+ distinct frameworks with clear inputs/outputs:
+  → Multi-skill package (one skill per framework)
+  → Include references for progressive disclosure
+  → Include templates for key frameworks
+
+IF the book has 1-2 core methods or a unified system:
+  → Single skill with multiple sections
+  → References for depth, templates for practice
+
+IF the book's value is in style/voice/technique (writing, rhetoric, storytelling):
+  → Style emulation skill with pattern library
+  → Include before/after examples as references
+
+IF the book teaches through stories/cases (biography, narrative nonfiction):
+  → Extract decision patterns and principles
+  → Build scenario-based skill with case references
+
+IF the book is philosophical/abstract:
+  → Extract thinking prompts and mental models
+  → Build analytical/reflective skill
 ```
 
-**Example:** Blue Ocean Strategy → High fit, 6 skills (ERRC, six paths, etc.)
+**Output of Step 1:**
+```
+Book: [Title]
+Book Type: [Methodology / Style / Biography / Productivity / etc.]
+Extractable Value: [What an agent can DO with this]
+Recommended Skill Strategy: [Multi-skill / Single skill / Style emulation / etc.]
+Recommended Skills: [number] — [list names]
+Reference Strategy: [What goes into references]
+Template Strategy: [What templates to create, if any]
+```
 
 **See:** `references/fit-assessment.md` for detailed criteria
 
 ---
 
-### Step 2: Extract Task Units (30 min)
+### Step 2: Extract Core Units
 
-**For each framework/tool, define:**
+Based on the strategy from Step 1, extract the book's actionable content.
 
-1. **Task Name** (kebab-case): `eliminate-reduce-raise-create`
-2. **Problem Solved:** What problem does it solve?
-3. **Trigger When:** Specific user scenarios
-4. **Input:** What user provides
-5. **Output:** What skill produces
+**For methodology books — extract task units:**
+
+For each framework/tool:
+1. **Name** (kebab-case): `eliminate-reduce-raise-create`
+2. **Problem Solved:** What real-world problem does it solve?
+3. **Trigger When:** When should the agent invoke this?
+4. **Input:** What does the user need to provide?
+5. **Output:** What does the skill produce?
 6. **Workflow:** Step-by-step process
-7. **Constraints:** What NOT to do
+7. **Constraints:** What NOT to do, common anti-patterns
 
-**Output format:** Use the task unit structure defined above (Task Name, Problem Solved, Trigger When, Input, Output, Workflow, Constraints)
+**For style/craft books — extract patterns:**
+
+1. **Pattern Name:** "The reveal technique"
+2. **Pattern Description:** What this technique does
+3. **Mechanics:** How it works (sentence structure, pacing, word choice)
+4. **Examples:** Before/after from the book
+5. **When to Use:** Situations where this pattern shines
+
+**For biography/narrative books — extract decisions:**
+
+1. **Decision Point:** "When to pivot vs persist"
+2. **Context:** What was happening
+3. **The Decision:** What the person chose
+4. **Why:** Reasoning and principles
+5. **Outcome:** What happened
+6. **Generalizable Rule:** What can others learn
 
 ---
 
-### Step 3: Design Package Structure (5 min)
+### Step 3: Design Package Structure
 
-**IMPORTANT: Use official Claude Code plugin format**
+Based on the strategy from Step 1, choose the right structure.
 
-**Official plugin structure:**
+**Option A: Official Plugin Package (for multi-skill, shareable output)**
+
 ```
 [book-name]-pro/
 ├── .claude-plugin/
-│   └── marketplace.json              # REQUIRED - Plugin registration
-├── plugins/                           # Plugin container (CRITICAL)
-│   └── [book-name]-pro/               # Plugin directory (same name as parent)
-│       ├── skills/                    # Individual skills (4-12)
-│       │   ├── [tool-1]/
+│   └── marketplace.json              # Plugin registration
+├── plugins/
+│   └── [book-name]-pro/
+│       ├── skills/                    # Individual skills
+│       │   ├── [skill-1]/
 │       │   │   └── SKILL.md
-│       │   ├── [tool-2]/
-│       │   │   └── SKILL.md
-│       │   └── ...
-│       ├── references/                # Deep methodology (5K-8K each)
-│       │   ├── [tool-1].md
-│       │   ├── [tool-2].md
-│       │   └── ...
-│       └── assets/templates/          # Worksheets (optional)
-│           └── ...
+│       │   └── [skill-2]/
+│       │       └── SKILL.md
+│       ├── references/                # Deep methodology
+│       │   ├── [topic-1].md
+│       │   └── [topic-2].md
+│       └── assets/templates/          # Worksheets (if applicable)
 ├── README.md
-└── deploy/                            # Deployment scripts
+└── deploy/
     ├── install-official.sh
-    ├── install-official.bat
-    └── README.md
+    └── install-independent.sh
 ```
 
-**KEY REQUIREMENTS:**
-- ✅ `.claude-plugin/marketplace.json` - **MUST HAVE** (plugin registration)
-- ✅ `plugins/[plugin-name]/skills/` directory structure
-- ✅ marketplace.json source paths: `"./plugins/[plugin-name]/skills/[skill-name]"`
-- ✅ Each skill has its own `SKILL.md` with YAML frontmatter
-- ✅ Deployment scripts for `~/.claude/plugins/marketplaces/local-marketplace/`
+**Option B: Simple Skill (for single-skill, lightweight output)**
 
-**⚠️ CRITICAL PATH FIX (v2.1):**
-The `source` paths in marketplace.json must include the full path from marketplace.json:
+```
+[book-name]-skill/
+├── SKILL.md              # Main skill
+├── references/           # Deep dives
+│   ├── [topic-1].md
+│   └── [topic-2].md
+└── assets/templates/     # Worksheets (if applicable)
+```
+
+**Key decision factors:**
+- Plugin package → when the output has 2+ skills, user wants to share, or wants the "installed plugin" experience
+- Simple skill → when the output is one unified skill, quick personal use
+
+**⚠️ CRITICAL (v2.1 path fix):**
+If using plugin format, `source` paths in marketplace.json MUST be:
 ```json
 "source": "./plugins/[plugin-name]/skills/[skill-name]"
 ```
-NOT just `"source": "./skills/[skill-name]"` (this causes "Plugin directory not found" errors)
+NOT `"./skills/[skill-name]"` (causes "Plugin directory not found" errors)
 
 **Reference:**
 - Official docs: https://code.claude.com/docs/en/plugin-marketplaces
@@ -134,11 +194,11 @@ NOT just `"source": "./skills/[skill-name]"` (this causes "Plugin directory not 
 
 ---
 
-### Step 4: Generate Skills (60-120 min)
+### Step 4: Generate Skills
 
-**For each task unit, create a skill:**
+**For each skill unit, create a SKILL.md:**
 
-**YAML frontmatter (CRITICAL):**
+**YAML frontmatter (CRITICAL — only `name` and `description`):**
 ```yaml
 ---
 name: [skill-name]
@@ -146,60 +206,64 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
 ---
 ```
 
-**Skill body (<2,000 words):**
+**Skill body structure:**
 ```markdown
 # [Skill Name]
 
 [One-sentence summary]
 
 ## Quick Start
-[3-5 step workflow]
+[3-5 step workflow — user should be able to start in under a minute]
 
 ## When to Use This Skill
-[Specific trigger scenarios]
+[Specific trigger scenarios — these MUST match the description triggers]
 
 ## Step-by-Step Workflow
-[Detailed steps]
+[Detailed steps with guided questions and examples at each step]
 
 ## Common Mistakes
 ❌ [Mistake 1]
+   ✅ [Fix]
 ❌ [Mistake 2]
+   ✅ [Fix]
 
 ## Real-World Example
-[Concrete case study]
+[Concrete case study from the book or real application]
 
 ## See Also
 - references/[detailed-guide].md
 ```
 
-**Quality checks:**
+**Quality gates:**
 - [ ] Description has 3+ trigger scenarios
-- [ ] Solves ONE clear problem
-- [ ] Independently callable
-- [ ] Has real examples
+- [ ] Solves ONE clear problem per skill
+- [ ] Independently callable — agent can use it without loading other skills
+- [ ] Has at least one concrete example
+- [ ] Includes what NOT to do (constraints/anti-patterns)
 
 ---
 
-### Step 5: Write References (180-300 min total)
+### Step 5: Write References
 
-**Each reference file (5,000-8,000 words):**
+References are what make skills powerful — they provide the deep knowledge that the agent can draw on when the SKILL.md alone isn't enough. This is progressive disclosure: SKILL.md gives the quick version, references give the full methodology.
 
-1. **Complete Methodology** (theory)
-2. **Step-by-Step Guide** (instructions)
-3. **Guided Questions** (what to ask)
-4. **Real-World Examples** (2-3 case studies)
-5. **Common Pitfalls** (what goes wrong)
-6. **Advanced Tips** (for experienced users)
+**Each reference file should include:**
 
-**Structure:**
+1. **Complete Methodology** — theory, why it works, relationship to other tools
+2. **Step-by-Step Guide** — detailed walkthrough with guided questions at each step
+3. **Real-World Examples** — 2-3 case studies (from the book + modern applications)
+4. **Common Pitfalls** — what goes wrong and how to avoid it
+5. **Advanced Usage** — for experienced users, edge cases
+
+**Reference structure:**
 ```markdown
-# [Tool Name] - Complete Guide
+# [Topic] - Complete Guide
 
 ## Overview
-[What this tool is and why it matters]
+[What this is and why it matters]
 
 ## Core Framework
-[Detailed explanation]
+[Detailed explanation of the methodology]
 
 ## Step-by-Step Implementation
 ### Step 1: [Name]
@@ -207,7 +271,6 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
 **Guided questions:**
 - [Question 1?]
 **Example:** [concrete example]
-[... all steps ...]
 
 ## Case Studies
 ### Case 1: [Name]
@@ -218,17 +281,14 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
    ✅ **Solution:** [how to avoid]
 
 ## Advanced Usage
-[Tips for pros]
-
-## Template
-[Worksheet]
+[Tips for pros, edge cases]
 ```
 
 ---
 
-### Step 6: Create Templates (30-60 min)
+### Step 6: Create Templates (If Applicable)
 
-**For tools benefiting from structured worksheets:**
+For frameworks that benefit from structured worksheets:
 
 ```markdown
 # [Tool Name] Template
@@ -240,19 +300,19 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
 [Ready-to-use table/form]
 
 ## Example
-[Filled-out example]
+[Filled-out example from the book]
 ```
 
 **Quality check:**
 - [ ] Can user copy and start filling immediately?
-- [ ] Clear instructions?
-- [ ] Example included?
+- [ ] Clear instructions included?
+- [ ] Filled example included?
 
 ---
 
-### Step 6.5: Create marketplace.json (15 min)
+### Step 7: Create marketplace.json (Plugin Format Only)
 
-**CRITICAL: This is the most important file for official plugin format.**
+**Only needed for Option A (plugin package).**
 
 **Create `.claude-plugin/marketplace.json`:**
 
@@ -262,281 +322,100 @@ description: [What it does]. Use when: (1) [trigger 1], (2) [trigger 2], (3) [tr
   "name": "[plugin-name]-pro",
   "description": "[Complete description based on book]",
   "owner": {
-    "name": "[Your Name]",
-    "email": "[your.email@example.com]"
+    "name": "[Creator Name]",
+    "email": "[email]"
   },
   "plugins": [
     {
       "name": "[skill-1-name]",
       "description": "[One-line description]",
       "version": "1.0.0",
-      "author": {
-        "name": "[Your Name]"
-      },
+      "author": { "name": "[Creator Name]" },
       "source": "./plugins/[plugin-name]/skills/[skill-1-name]",
-      "category": "productivity",
-      "homepage": "https://github.com/[username]/[repo]"
-    },
-    {
-      "name": "[skill-2-name]",
-      "description": "[One-line description]",
-      "version": "1.0.0",
-      "author": {
-        "name": "[Your Name]"
-      },
-      "source": "./plugins/[plugin-name]/skills/[skill-2-name]",
       "category": "productivity"
     }
   ]
 }
 ```
 
-**Template location:** `deploy/marketplace.json.template`
-
-**Common categories:**
-- `productivity` - Tools for getting things done
-- `development` - Coding and development tools
-- `learning` - Educational and learning tools
-- `business` - Business and strategy tools
+**Template:** `deploy/marketplace.json.template`
+**Common categories:** `productivity`, `development`, `learning`, `business`
 
 ---
 
-### Step 7: Create Deployment Artifacts (15 min)
+### Step 8: Create Deployment Artifacts (Plugin Format Only)
 
-**CRITICAL: Make deployment easy and error-free.**
+**For plugin packages, generate deployment scripts.** The deploy scripts from this repository can be reused — just update `PLUGIN_NAME`.
 
-**Create `deploy/install.sh`:**
+See `deploy/README.md` for complete deployment documentation.
+
+**Quick reference:**
 ```bash
-#!/bin/bash
-# Auto-deployment script for [book-name]-pro
+# Install as independent marketplace (recommended)
+cd deploy && ./install-independent.sh
 
-PLUGIN_DIR="$HOME/.claude/skills/[book-name]-pro"
-mkdir -p "$PLUGIN_DIR"
+# Install to shared marketplace
+cd deploy && ./install-official.sh
 
-# Copy files
-cp -r skills/* "$PLUGIN_DIR/"
-cp -r references "$PLUGIN_DIR/"
-cp -r assets "$PLUGIN_DIR/"
-
-echo "✅ Installed to $PLUGIN_DIR"
-echo "🔄 Restart Claude Code to load skills"
-```
-
-**Create `deploy/verify.sh`:**
-```bash
-#!/bin/bash
-# Verify deployment
-
-SKILL_DIR="$HOME/.claude/skills/[book-name]-pro"
-
-if [ -d "$SKILL_DIR" ]; then
-    echo "✅ Plugin installed at $SKILL_DIR"
-    echo "📋 Skills found:"
-    ls "$SKILL_DIR" | grep "SKILL.md"
-else
-    echo "❌ Plugin not found. Run install.sh first."
-fi
-```
-
-**Create `README.md` with deployment section:**
-```markdown
-## Deployment
-
-### Option 1: Automated (Recommended)
-```bash
-cd deploy
-chmod +x install.sh
-./install.sh
-```
-
-### Option 2: Manual
-```bash
-cp -r [book-name]-pro ~/.claude/skills/
-```
-
-### Verify Installation
-```bash
-./deploy/verify.sh
-```
-
-### Common Issues
-
-**Issue:** Skills not loading
-- **Fix:** Restart Claude Code
-- **Check:** `~/.claude/skills/[book-name]-pro/` exists?
-
-**Issue:** YAML errors
-- **Fix:** Ensure only `name` and `description` in frontmatter
-- **Validate:** Use YAML validator
-
-See `deploy/README.md` for troubleshooting
+# Simple skills: just copy to ~/.claude/skills/
+cp -r [skill-dir] ~/.claude/skills/
 ```
 
 ---
 
-### Step 8: Quality Check (30 min)
-
-**Checklist:**
+### Step 9: Quality Check
 
 **Content Quality:**
-- [ ] All skills have clear descriptions (3+ triggers)
-- [ ] Each skill solves ONE problem
+- [ ] All skills have clear descriptions with 3+ trigger scenarios
+- [ ] Each skill solves ONE clear problem
 - [ ] Skills are independently callable
-- [ ] References are 5,000+ words each
-- [ ] Templates are ready-to-use
+- [ ] References provide depth beyond the skill body
+- [ ] Templates are ready-to-use (if applicable)
+- [ ] The agent can use these skills to help a user WITHOUT the user having read the book
 
-**Deployment Quality:**
-- [ ] install.sh runs without errors
-- [ ] verify.sh confirms installation
+**The Ultimate Test:**
+> Can the agent, using only these skills and references, help a user who has NEVER read the book apply its methods to a real problem?
+
+If yes → success. If no → the skills need more depth.
+
+**Deployment Quality (plugin format only):**
+- [ ] marketplace.json paths are correct
+- [ ] Install scripts work without errors
 - [ ] README has clear deployment instructions
-- [ ] Common errors documented
-
-**Test:**
-```bash
-# Run verification
-./deploy/verify.sh
-
-# Test skill trigger
-# In Claude Code: "Use [skill-name] to [problem]"
-```
 
 ---
 
-## 📦 Output: What User Gets
+## 📦 Output Summary
 
-### Deliverables
+### What the User Gets
 
-1. **Skills Package** (complete directory structure)
-2. **4-12 Skills** (each 1,000-2,000 words)
-3. **References** (36,000-60,000 words total)
-4. **Templates** (2-5 ready-to-use worksheets)
-5. **Deployment Scripts** (one-command install)
-6. **README** (overview + deployment guide)
+| Output | When | What |
+|--------|------|------|
+| **Skill or skill collection** | Always | SKILL.md files with workflow, triggers, examples |
+| **References** | Always | Deep methodology for progressive disclosure |
+| **Templates** | When frameworks need worksheets | Ready-to-use forms |
+| **Plugin package** | Multi-skill or when user wants shareability | marketplace.json + deploy scripts |
 
-### Deployment Location (Simple Approach - Recommended)
+### Why Plugin Format Matters
 
-**Target directory:** `~/.claude/skills/[plugin-name]/`
-
-**Why this location:**
-- ✅ Claude Code automatically loads skills from here
-- ✅ No marketplace.json needed
-- ✅ No complex plugin structure
-- ✅ Easy to verify and debug
-
-**Structure options:**
-
-**Option A: Single Skill (Like blue-ocean-strategy-pro)**
-```
-~/.claude/skills/blue-ocean-strategy-pro/
-├── SKILL.md              # Main skill
-├── references/           # Detailed docs
-└── assets/templates/     # Worksheets
-```
-
-**Option B: Multi-Skill Package**
-```
-~/.claude/skills/[plugin-name]/
-├── SKILL.md              # Optional main skill
-├── skills/               # Individual skills
-│   ├── tool-1/
-│   │   └── SKILL.md
-│   └── tool-2/
-│       └── SKILL.md
-├── references/
-└── assets/templates/
-```
-
-### Deployment Process
-
-**User experience:**
-```bash
-# 1. Download package
-git clone [repo] or unzip [package]
-
-# 2. Run installer (one command)
-cd [plugin-name]/deploy
-./install.sh    # or install.bat on Windows
-
-# 3. Restart Claude Code
-# Skills are now available!
-```
-
-**Total user time:** <3 minutes
-**Error rate:** Near zero (simple copy operation)
-
----
-
-## ⚠️ Common Deployment Issues
-
-### Issue 1: Skills Not Loading
-
-**Symptoms:** Skills don't trigger in Claude Code
-
-**Causes:**
-- Claude Code not restarted
-- Wrong directory (`~/.claude/skills/` vs `~/.claude/plugins/`)
-- YAML syntax errors
-
-**Solutions:**
-```bash
-# Check directory
-ls ~/.claude/skills/[book-name]-pro/
-
-# Validate YAML
-# Use: https://www.yamllint.com/
-
-# Restart Claude Code
-# Kill and reopen app
-```
-
-### Issue 2: YAML Frontmatter Errors
-
-**Symptoms:** Skill fails to load
-
-**Common mistakes:**
-```yaml
-❌ ---
-name: skill
-version: v1.0        # ← Extra fields
-author: someone      # ← Extra fields
----
-
-✅ ---
-name: skill
-description: Correct format
----
-```
-
-**Fix:** Only `name` and `description` fields
-
-### Issue 3: Path Issues on Windows
-
-**Symptoms:** Script fails on Windows
-
-**Fix:** Provide `deploy/install.bat`:
-```batch
-@echo off
-set PLUGIN_DIR=%USERPROFILE%\.claude\skills\[book-name]-pro
-mkdir "%PLUGIN_DIR%"
-xcopy /E /Y skills "%PLUGIN_DIR%\skills\"
-echo Installed to %PLUGIN_DIR%
-```
-
-**See:** `deploy/README.md` (Troubleshooting section) for complete guide
+Even for personal use, plugin format gives users:
+- **One-command install** — no manual file copying
+- **Clean management** — see all book-plugins in one place
+- **Shareability** — send to teammates, publish to GitHub
+- **Sense of accomplishment** — "I turned a book into a real plugin"
 
 ---
 
 ## 📚 References & Examples
 
 ### For Book Assessment
-- `references/fit-assessment.md` - Detailed fit criteria for evaluating books
+- `references/fit-assessment.md` - Detailed criteria for evaluating books
 
 ### For Success Stories
 - `references/success-stories/blue-ocean-strategy.md` - Complete case study
-  - 8-step process walkthrough
-  - Time investment breakdown
-  - Quality checklist
-  - Final metrics (46,000 words, 6 skills)
+  - Multi-skill plugin package (6 workflow skills)
+  - Full conversion walkthrough
+  - Quality metrics
 
 ### For Deployment
 - `deploy/README.md` - Complete deployment manual & troubleshooting
@@ -544,44 +423,35 @@ echo Installed to %PLUGIN_DIR%
 
 ### For Testing
 - `tests/blue-ocean-strategy-mvp.md` - MVP test case
-- `examples/usage-examples.md` - Usage examples
+- `examples/usage-examples.md` - Usage examples across book types
 
 ### For Known Issues
 - `fixes/v2.1-path-fix.md` - Path fix notes (v2.1)
 
 ---
 
+## ⚠️ Common Issues
+
+### Skills Not Loading
+- Restart Claude Code after installation
+- Check `~/.claude/skills/` or `~/.claude/plugins/` path is correct
+- Validate YAML frontmatter — only `name` and `description` fields allowed
+
+### marketplace.json Path Errors (v2.1 fix)
+- `source` must be `./plugins/[plugin-name]/skills/[skill-name]` — NOT `./skills/[skill-name]`
+
+See `deploy/README.md` for complete troubleshooting.
+
+---
+
 ## 🎯 Success Metrics
 
-A successful conversion should achieve:
+A successful book2skill conversion should achieve:
 
-✅ **Triggerable** - Each skill activates on relevant requests
-✅ **Deployable** - One-command installation, no errors
-✅ **Independent** - No book reading required to use
-✅ **Actionable** - Produces specific decisions/recommendations
-✅ **Validated** - Tested on real use cases
+✅ **Agent-readable** — The agent loads the skill and immediately understands what the book's methods are
+✅ **Agent-usable** — The agent can apply the methods to help a user solve real problems
+✅ **User-independent** — The user does NOT need to have read the book to benefit
+✅ **Deployable** — One-command installation, works immediately
+✅ **Shareable** — Packaged so others can install and use
 
-**Target output:**
-- 4-12 skills
-- 40,000-80,000 words total
-- 2-5 templates
-- <5 minute deployment time
-
----
-
-## 🚀 Next Steps
-
-**For first-time users:**
-1. Read `references/success-stories/blue-ocean-strategy.md` (complete example)
-2. Use `references/fit-assessment.md` to evaluate your book
-3. Follow 8-step workflow
-4. Test deployment with `deploy/install.sh`
-
-**For experienced users:**
-1. Customize workflow to your needs
-2. Modify templates in `references/`
-3. Contribute your success stories
-
----
-
-**Remember:** Focus on **executable skill systems**, not book summaries. The goal is to create tools users can deploy and use immediately. 🚀
+**The final measure:** After conversion, a user should be able to say to the agent *"Use the ERRC framework to help me redesign my product"* and get professional-grade output — without ever having opened Blue Ocean Strategy.

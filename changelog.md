@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.0 (2026-05-12) — Major Refactor
+- 🏗️ **REFACTOR**: Core philosophy redesign — "every book has extractable value"
+  - No longer limited to methodology books — now handles 7 book types (methodology, style, biography, productivity, tactical, fiction, academic)
+  - Step 1 redesigned as "Book Assessment & Strategy Decision" — intelligently determines skill format based on book type
+  - Removed all fixed time estimates (was "5-8 hours", now adaptive)
+  - Single-skill option added (not everything needs multi-skill plugin)
+  - Plugin format preserved as recommended for multi-skill / shareable output
+- 📝 **REWRITTEN**: SKILL.md — complete rewrite with book-type decision matrix, option A/B structures
+- 📝 **REWRITTEN**: references/fit-assessment.md — expanded from simple checklist to 7 book types with skill mapping, decision flowchart, and quality tests
+
 ## v2.2 (2026-05-12)
 - 🐛 **FIX**: Removed broken references to non-existent files in SKILL.md (7 dead links)
   - `references/detailed-workflow.md`, `task-unit-template.md`, `package-structures.md`, `deployment-guide.md`, `deployment-troubleshooting.md`, `examples/deployment-scripts/`, `examples/book-evaluations/`

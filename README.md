@@ -12,14 +12,17 @@
 
 ### 🎯 项目简介
 
-**Book2Skill Factory** 是一个强大的 Claude Code Skill，能够将方法论书籍转换为符合官方规范的 Claude Code Plugin Package。
+**Book2Skill Factory** 是一个 Claude Code Skill，能把任何书籍转换成 agent 可读、可用的 Skill 或 Plugin Package。
 
 **核心能力：**
-- ✅ 将书籍转换为官方 Plugin 格式（包含 marketplace.json）
-- ✅ 自动生成多个 Skills（每个框架/工具一个 Skill）
-- ✅ 创建详细的 Reference 文档（每个 5,000-8,000 字）
-- ✅ 生成可用的 Templates（工作表和模板）
-- ✅ 提供一键部署脚本（Linux/Mac/Windows）
+- ✅ 智能评估书籍类型 → 自动决定最佳 Skill 形态（方法论/风格模仿/决策框架/习惯系统…）
+- ✅ 方法论书籍 → 多 Skill 插件包（含 marketplace.json）
+- ✅ 写作/风格书籍 → 风格模仿 Skill
+- ✅ 商业传记 → 决策框架 Skill
+- ✅ 小说 → 创作风格复刻 Skill
+- ✅ Reference 深度文档（渐进式披露，agent 用得上的才是好 reference）
+- ✅ 一键部署脚本（Linux/Mac/Windows）
+- ✅ Plugin 格式打包（方便安装、管理、分享给团队）
 
 **为什么使用 Book2Skill Factory？**
 
@@ -27,7 +30,7 @@
 
 ```
 ❌ 传统方式：读书 → 做笔记 → 忘记
-✅ Book2Skill Factory：读书 → 生成 Plugin → 立即可用 → 持续迭代
+✅ Book2Skill Factory：一本书 → Skill/Plugin → Agent 直接用 → 帮你解决实际问题
 ```
 
 ---
@@ -131,6 +134,7 @@ install-independent.bat
 - ✅ 5-8 小时完成完整转换
 - ✅ 所有框架立即可用
 - ✅ 支持实战场景应用
+- ✅ 打包成 Plugin，方便分享给团队
 
 ---
 
@@ -203,14 +207,16 @@ MIT License
 
 ### 🎯 Project Overview
 
-**Book2Skill Factory** converts methodology books into official Claude Code Plugin Packages.
+**Book2Skill Factory** transforms any book into agent-readable, agent-usable skills or plugin packages for Claude Code.
 
 **Core Capabilities:**
-- ✅ Convert books to official Plugin format
-- ✅ Auto-generate multiple Skills
-- ✅ Create detailed Reference docs
-- ✅ Generate usable Templates
-- ✅ Provide deployment scripts
+- ✅ Smart book assessment → determines optimal skill format automatically
+- ✅ 7 book types supported: methodology, writing craft, biography, productivity, sales/negotiation, fiction, academic
+- ✅ Methodology books → multi-skill plugin packages
+- ✅ Style books → pattern emulation skills
+- ✅ Fiction → creative writing emulation skills
+- ✅ Deep references for progressive disclosure
+- ✅ Plugin packaging for easy install, management, and team sharing
 
 ---
 
@@ -240,32 +246,34 @@ install-independent.bat   # Windows
 
 ---
 
-### 📚 Suitable Book Types
+### 📚 Supported Book Types
 
-**Best Fit:**
-- ✅ Entrepreneurship
-- ✅ Product Design
-- ✅ Strategy & Management
-- ✅ Sales & Negotiation
-- ✅ Personal Growth
+**Every book has extractable value:**
+- ✅ Methodology / Framework books (Blue Ocean Strategy, Lean Startup…)
+- ✅ Writing Craft / Style books (On Writing, Storyworthy…)
+- ✅ Business Biography (Shoe Dog, The Everything Store…)
+- ✅ Personal Productivity (Atomic Habits, Deep Work…)
+- ✅ Sales / Negotiation (Never Split the Difference, SPIN Selling…)
+- ✅ Fiction (narrative techniques, voice emulation)
+- ✅ Academic / Research (Thinking Fast and Slow…)
 
 ---
 
 ### 🎁 Core Features
 
-1. **Intelligent Assessment** - Auto-evaluates book suitability
-2. **Task Extraction** - Identifies frameworks and tools
-3. **Official Format** - Compliant with Anthropic specs
-4. **Progressive Disclosure** - Quick start + deep dive
+1. **Intelligent Assessment** - Determines skill format based on book type
+2. **Value Extraction** - Pulls frameworks, patterns, or style based on what the book offers
+3. **Official Format** - Compliant with Anthropic plugin specs
+4. **Progressive Disclosure** - SKILL.md for quick use, references for depth
 
 ---
 
 ### 📖 Success Stories
 
-**Blue Ocean Strategy:**
-- 6 independent Skills
-- 46,000 words of documentation
-- Complete in 5-8 hours
+**Blue Ocean Strategy (Methodology book → Multi-skill plugin):**
+- 6 independent workflow skills (ERRC, Six Paths, Strategy Canvas…)
+- 46,000 words of deep references
+- Packaged as plugin with one-command install
 
 ---
 
@@ -309,4 +317,4 @@ If this project helps you, please give it a ⭐️ Star!
 **Made with ❤️ by the Vibe Coding Community**
 
 **Last Updated:** 2026-05-12  
-**Version:** v2.2 (Bug Fix Release)
+**Version:** v3.0 (Smart Book Assessment)
