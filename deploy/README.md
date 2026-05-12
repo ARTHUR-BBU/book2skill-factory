@@ -240,7 +240,7 @@ chmod +x install-official.sh install-independent.sh
 **Solution:**
 1. Create `.claude-plugin/marketplace.json` in your plugin directory
 2. Use `marketplace.json.template` as a starting point
-3. See `book2skill-factory-official-spec.md` for structure
+3. See Claude Code documentation: https://code.claude.com/docs/en/plugin-marketplaces
 
 ---
 
@@ -317,7 +317,7 @@ To customize for your plugin package:
       "author": {
         "name": "Your Name"
       },
-      "source": "./skills/skill-name",
+      "source": "./plugins/your-plugin-pro/skills/skill-name",
       "category": "productivity",
       "homepage": "https://github.com/yourusername/your-repo"
     }
@@ -329,10 +329,10 @@ To customize for your plugin package:
 
 ## 📚 Additional Resources
 
-- **Official Plugin Spec:** `../../book2skill-factory-official-spec.md`
 - **Main Skill:** `../SKILL.md`
 - **marketplace.json Template:** `marketplace.json.template`
 - **Success Stories:** `../references/success-stories/`
+- **Official Plugin Docs:** https://code.claude.com/docs/en/plugin-marketplaces
 
 ---
 
@@ -350,13 +350,12 @@ To customize for your plugin package:
 ## Support
 
 For issues or questions:
-1. Check `../../book2skill-factory-official-spec.md`
+1. Check Claude Code documentation: https://code.claude.com/docs/en/plugin-marketplaces
 2. Review the troubleshooting section above
-3. Check Claude Code documentation: https://code.claude.com/docs/en/plugin-marketplaces
-4. Review the main README.md in the parent directory
+3. Review the main README.md in the parent directory
 
 ---
 
-**Created for:** Book2Skill Factory v2.1
-**Last Updated:** 2026-03-26
+**Created for:** Book2Skill Factory v2.2
+**Last Updated:** 2026-05-12
 **Status:** ✅ Official Plugin Format Compliant

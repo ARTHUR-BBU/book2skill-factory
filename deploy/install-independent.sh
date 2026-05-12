@@ -53,6 +53,10 @@ print_error() {
     echo -e "${RED}❌ $1${NC}"
 }
 
+print_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
 ################################################################################
 # Pre-flight checks
 ################################################################################
@@ -160,8 +164,8 @@ echo ""
 print_step "Verifying installation..."
 
 # Check marketplace.json
-if [ ! -f "$TARGET_DIR/marketplace.json" ]; then
-    print_error "marketplace.json not found"
+if [ ! -f "$TARGET_DIR/.claude-plugin/marketplace.json" ]; then
+    print_error "marketplace.json not found at $TARGET_DIR/.claude-plugin/marketplace.json"
     exit 1
 fi
 print_success "marketplace.json verified"

@@ -308,5 +308,5 @@ If this project helps you, please give it a ⭐️ Star!
 
 **Made with ❤️ by the Vibe Coding Community**
 
-**Last Updated:** 2026-03-26  
-**Version:** v2.1 (Official Plugin Format)
+**Last Updated:** 2026-05-12  
+**Version:** v2.2 (Bug Fix Release)

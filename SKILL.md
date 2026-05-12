@@ -40,8 +40,9 @@ Use this skill when the user wants to:
 - "Package this methodology as a plugin"
 - "Turn these book concepts into executable tools"
 
-**Best-fit books:** Entrepreneurship, product, strategy, management, sales, negotiation
-**Avoid:** Novels, pure philosophy, narrative nonfiction
+**Best-fit books:** Entrepreneurship, product, strategy, management, sales, negotiation, personal productivity
+**Avoid:** Novels, pure philosophy, narrative nonfiction, memoirs
+**Not sure?** See `references/fit-assessment.md` for detailed criteria and examples
 
 ---
 
@@ -63,7 +64,7 @@ Core Frameworks: [list 3-7 frameworks]
 
 **Example:** Blue Ocean Strategy → High fit, 6 skills (ERRC, six paths, etc.)
 
-**See:** `references/book-fit-assessment.md` for detailed criteria
+**See:** `references/fit-assessment.md` for detailed criteria
 
 ---
 
@@ -79,7 +80,7 @@ Core Frameworks: [list 3-7 frameworks]
 6. **Workflow:** Step-by-step process
 7. **Constraints:** What NOT to do
 
-**Output format:** See `references/task-unit-template.md`
+**Output format:** Use the task unit structure defined above (Task Name, Problem Solved, Trigger When, Input, Output, Workflow, Constraints)
 
 ---
 
@@ -130,7 +131,6 @@ NOT just `"source": "./skills/[skill-name]"` (this causes "Plugin directory not 
 **Reference:**
 - Official docs: https://code.claude.com/docs/en/plugin-marketplaces
 - Example: https://github.com/anthropics/claude-plugins-official
-- Local spec: `F:\Temp\book2skill-factory-official-spec.md`
 
 ---
 
@@ -369,7 +369,7 @@ cp -r [book-name]-pro ~/.claude/skills/
 - **Fix:** Ensure only `name` and `description` in frontmatter
 - **Validate:** Use YAML validator
 
-See `references/deployment-guide.md` for troubleshooting
+See `deploy/README.md` for troubleshooting
 ```
 
 ---
@@ -522,16 +522,14 @@ xcopy /E /Y skills "%PLUGIN_DIR%\skills\"
 echo Installed to %PLUGIN_DIR%
 ```
 
-**See:** `references/deployment-troubleshooting.md` for complete guide
+**See:** `deploy/README.md` (Troubleshooting section) for complete guide
 
 ---
 
 ## 📚 References & Examples
 
-### For Detailed Workflow
-- `references/detailed-workflow.md` - Complete 8-step guide with examples
-- `references/task-unit-template.md` - Task unit definition template
-- `references/package-structures.md` - Package structure options
+### For Book Assessment
+- `references/fit-assessment.md` - Detailed fit criteria for evaluating books
 
 ### For Success Stories
 - `references/success-stories/blue-ocean-strategy.md` - Complete case study
@@ -541,13 +539,15 @@ echo Installed to %PLUGIN_DIR%
   - Final metrics (46,000 words, 6 skills)
 
 ### For Deployment
-- `references/deployment-guide.md` - Complete deployment manual
-- `references/deployment-troubleshooting.md` - Common issues & solutions
-- `examples/deployment-scripts/` - Ready-to-use scripts (bash, batch, python)
+- `deploy/README.md` - Complete deployment manual & troubleshooting
+- `deploy/marketplace.json.template` - Template for marketplace.json
 
-### For Book Assessment
-- `references/book-fit-assessment.md` - Detailed fit criteria
-- `examples/book-evaluations/` - 30+ book evaluations
+### For Testing
+- `tests/blue-ocean-strategy-mvp.md` - MVP test case
+- `examples/usage-examples.md` - Usage examples
+
+### For Known Issues
+- `fixes/v2.1-path-fix.md` - Path fix notes (v2.1)
 
 ---
 
@@ -573,7 +573,7 @@ A successful conversion should achieve:
 
 **For first-time users:**
 1. Read `references/success-stories/blue-ocean-strategy.md` (complete example)
-2. Use `references/book-fit-assessment.md` to evaluate your book
+2. Use `references/fit-assessment.md` to evaluate your book
 3. Follow 8-step workflow
 4. Test deployment with `deploy/install.sh`
 
